@@ -1,20 +1,23 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { FiArrowLeft, FiHome, FiCompass, FiGithub } from 'react-icons/fi';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import { Link } from 'react-router-dom';
-import * as THREE from 'three';
+import React, { useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { FiArrowLeft, FiHome, FiCompass, FiGithub } from "react-icons/fi";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { Link } from "react-router-dom";
+import * as THREE from "three";
 
+// ---------------- 3D Floating Island ----------------
 const FloatingIsland = () => {
   const islandRef = useRef();
   const cloudRefs = useRef([]);
 
   useFrame(({ clock }) => {
+    if (!islandRef.current) return;
     islandRef.current.rotation.y = clock.getElapsedTime() * 0.1;
     islandRef.current.position.y = Math.sin(clock.getElapsedTime()) * 0.2;
 
     cloudRefs.current.forEach((cloud, i) => {
+      if (!cloud) return;
       cloud.position.x = Math.sin(clock.getElapsedTime() * 0.2 + i) * 3;
       cloud.position.z = Math.cos(clock.getElapsedTime() * 0.2 + i) * 3;
     });
@@ -38,7 +41,7 @@ const FloatingIsland = () => {
       {[...Array(5)].map((_, i) => (
         <mesh
           key={i}
-          ref={el => cloudRefs.current[i] = el}
+          ref={(el) => (cloudRefs.current[i] = el)}
           position={[Math.sin(i) * 3, 1, Math.cos(i) * 3]}
         >
           <sphereGeometry args={[0.3, 16, 16]} />
@@ -49,49 +52,33 @@ const FloatingIsland = () => {
   );
 };
 
-
+// ---------------- NotFound Component ----------------
 const NotFound = () => {
   const controls = useAnimation();
   const ref = useRef();
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
+    if (isInView) controls.start("visible");
   }, [isInView, controls]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    }
+    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 10 } },
   };
 
   const buttonVariants = {
     hover: {
       scale: 1.05,
-      boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.2)",
-      transition: { type: "spring", stiffness: 400, damping: 10 }
+      boxShadow: "0px 5px 15px rgba(0,0,0,0.2)",
+      transition: { type: "spring", stiffness: 400, damping: 10 },
     },
-    tap: { scale: 0.95 }
+    tap: { scale: 0.95 },
   };
 
   return (
@@ -122,33 +109,24 @@ const NotFound = () => {
             animate={{
               scale: [1, 1.05, 1],
               textShadow: [
-                "0 0 10px rgba(99, 102, 241, 0)",
-                "0 0 20px rgba(99, 102, 241, 0.5)",
-                "0 0 10px rgba(99, 102, 241, 0)"
-              ]
+                "0 0 10px rgba(99,102,241,0)",
+                "0 0 20px rgba(99,102,241,0.5)",
+                "0 0 10px rgba(99,102,241,0)",
+              ],
             }}
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+            transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
           >
             404
           </motion.h1>
-          <motion.h2
-            className="text-4xl font-semibold mb-2"
-            variants={itemVariants}
-          >
+          <motion.h2 variants={itemVariants} className="text-4xl font-semibold mb-2">
             Lost in Space
           </motion.h2>
-          <motion.p
-            className="text-xl text-gray-300 max-w-lg"
-            variants={itemVariants}
-          >
+          <motion.p variants={itemVariants} className="text-xl text-gray-300 max-w-lg">
             The page you're looking for has drifted into the cosmic void.
           </motion.p>
         </motion.div>
+
+        {/* Terminal Box */}
         <motion.div
           variants={itemVariants}
           className="bg-gray-800/80 backdrop-blur-md rounded-xl p-6 mb-12 w-full max-w-md border border-gray-700 shadow-xl"
@@ -172,49 +150,28 @@ const NotFound = () => {
           </div>
         </motion.div>
 
-        {/* Navigation Buttons */}
-        <motion.div
-          variants={containerVariants}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          <motion.button
-            variants={itemVariants}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
-            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 rounded-lg font-medium"
-          >
-            <FiArrowLeft />
-            <Link to="/">Go Back</Link>
-          </motion.button>
+        {/* Buttons */}
+        <motion.div variants={containerVariants} className="flex flex-wrap justify-center gap-4">
+          {[{ label: "Go Back", icon: FiArrowLeft, to: "/" },
+            { label: "Home Page", icon: FiHome, to: "/" },
+            { label: "Explore", icon: FiCompass, to: "/explore" }].map((btn, i) => (
+            <motion.button
+              key={i}
+              variants={itemVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="flex items-center gap-2 px-6 py-3 bg-indigo-600 rounded-lg font-medium"
+              style={{ backgroundColor: i === 2 ? "#6b21a8" : i === 1 ? "#374151" : "#4f46e5" }}
+            >
+              <btn.icon />
+              <Link to={btn.to}>{btn.label}</Link>
+            </motion.button>
+          ))}
 
           <motion.button
             variants={itemVariants}
             whileHover="hover"
             whileTap="tap"
-            variants={buttonVariants}
-            className="flex items-center gap-2 px-6 py-3 bg-gray-700 rounded-lg font-medium"
-          >
-            <FiHome />
-            <Link to="/">Home Page</Link>
-          </motion.button>
-
-          <motion.button
-            variants={itemVariants}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
-            className="flex items-center gap-2 px-6 py-3 bg-purple-600 rounded-lg font-medium"
-          >
-            <FiCompass />
-            <Link to="/explore">Explore</Link>
-          </motion.button>
-
-          <motion.button
-            variants={itemVariants}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
             className="flex items-center gap-2 px-6 py-3 bg-gray-800 border border-gray-700 rounded-lg font-medium"
           >
             <FiGithub />
@@ -224,23 +181,18 @@ const NotFound = () => {
           </motion.button>
         </motion.div>
 
+        {/* Floating astronaut */}
         <motion.div
           variants={itemVariants}
           className="absolute bottom-8 right-8 text-6xl"
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, -5, 0]
-          }}
-          transition={{
-            duration: 6,
-            ease: "easeInOut",
-            repeat: Infinity
-          }}
+          animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
         >
           👨‍🚀
         </motion.div>
       </motion.div>
 
+      {/* Random stars */}
       {[...Array(30)].map((_, i) => (
         <motion.div
           key={i}
