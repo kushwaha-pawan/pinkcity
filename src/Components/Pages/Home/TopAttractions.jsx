@@ -5,7 +5,7 @@ const attractions = [
   {
     title: "Hawa Mahal",
     description: "The iconic 'Palace of Winds' with its unique honeycomb façade.",
-    image: "public/images/TopAttractions/hawamahal.jpg",
+    image: "/images/TopAttractions/hawamahal.jpg",
     details: "Built in 1799 by Maharaja Sawai Pratap Singh, Hawa Mahal is a stunning example of Rajput architecture with its 953 small windows (jharokhas) decorated with intricate latticework.",
     bestTime: "October to March",
     hours: "9:00 AM - 4:30 PM",
