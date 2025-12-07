@@ -1,3 +1,4 @@
+// src/Components/Layout/Layout.jsx
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -8,7 +9,7 @@ const Layout = () => {
   return (
     <div className="flex flex-col min-h-screen relative">
       <Navbar />
-      <main>
+      <main className="">
         <Outlet />
       </main>
       <Footer />

@@ -4,8 +4,8 @@ import DestinationPage from './DestinationPage'
 const Places = () => {
   return (
     <div className="mt-14">
-      {/* <DestinationPage /> */}
-      f
+      <DestinationPage />
+      
     </div>
   )
 }
