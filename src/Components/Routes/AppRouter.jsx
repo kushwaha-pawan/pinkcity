@@ -1,9 +1,9 @@
-// src/Components/Routes/AppRouter.jsx
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Layout from '../Layout/Layout';
 
-// Lazy load pages for better performance
+
 const Home = lazy(() => import("../Pages/Home/Home"));
 const Explore = lazy(() => import("../Pages/Explore/Explore"));
 const Places = lazy(() => import("../Pages/Places/Places"));
@@ -13,7 +13,7 @@ const Contact = lazy(() => import("../Pages/Contact/Contact"));
 const Auth = lazy(() => import("../Pages/Login/Auth/Auth"));
 const NotFound = lazy(() => import("../Pages/NotFound/NotFound"));
 
-// Simple inline loader component
+
 const SimpleLoader = () => (
   <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
     <div className="w-16 h-16 border-8 border-gray-300 border-t-8 border-t-blue-500 rounded-full animate-spin"></div>
@@ -62,7 +62,7 @@ const AppRouter = () => {
             } 
           />
           
-          {/* Note: Changed from /CyclingTour to /cycling-tour for consistency */}
+          
           <Route 
             path="/cyclingtour" 
             element={
