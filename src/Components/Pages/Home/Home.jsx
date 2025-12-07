@@ -2,6 +2,9 @@ import React from 'react'
 import Slider from "../Home/Slider"
 import TopAttractions from "../Home/TopAttractions"
 import TravelBlogVlog from "../Home/TravelBlogVlog"
+import CultureBanner from "../Home/CultureBanner"
+import JaipurCultureHeritage from "../Home/JaipurCultureHeritage"
+
 
 const Home = () => {
   return (
@@ -9,6 +12,8 @@ const Home = () => {
       <Slider />
       <TopAttractions />
       <TravelBlogVlog />
+      <CultureBanner />
+      <JaipurCultureHeritage />
     </div>
   )
 }
