@@ -5,7 +5,7 @@ const attractions = [
   {
     title: "Hawa Mahal",
     description: "The iconic 'Palace of Winds' with its unique honeycomb façade.",
-    image: "/images/TopAttractions/hawamahal.jpg",
+    image: "https://images.unsplash.com/photo-1597586124396-5f3b5c78f955?w=800&auto=format&fit=crop",
     details: "Built in 1799 by Maharaja Sawai Pratap Singh, Hawa Mahal is a stunning example of Rajput architecture with its 953 small windows (jharokhas) decorated with intricate latticework.",
     bestTime: "October to March",
     hours: "9:00 AM - 4:30 PM",
@@ -16,7 +16,7 @@ const attractions = [
   {
     title: "Amber Fort",
     description: "Majestic hilltop fort with elephant rides and stunning views.",
-    image: "public/images/TopAttractions/amerfort.jpg",
+    image: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w-800&auto=format&fit=crop",
     details: "Amber Fort is a magnificent fort located in Amer, just 11 km from Jaipur. Built with red sandstone and marble, the fort features the stunning Sheesh Mahal (Mirror Palace) and offers elephant rides to the entrance.",
     bestTime: "October to March",
     hours: "8:00 AM - 6:00 PM",
@@ -27,7 +27,7 @@ const attractions = [
   {
     title: "Jantar Mantar",
     description: "UNESCO-listed astronomical observation site with massive instruments.",
-    image: "public/images/TopAttractions/jantarmantar.png",
+    image: "https://images.unsplash.com/photo-1524307875964-4c93f5c73a4e?w=800&auto=format&fit=crop",
     details: "Built by Maharaja Jai Singh II in the early 18th century, Jantar Mantar is a collection of 19 astronomical instruments that were used to measure time, predict eclipses, and track celestial bodies with remarkable accuracy.",
     bestTime: "October to March",
     hours: "9:00 AM - 4:30 PM",
@@ -38,7 +38,7 @@ const attractions = [
   {
     title: "Jal Mahal",
     description: "Beautiful water palace floating in Man Sagar Lake.",
-    image: "public/images/TopAttractions/jalmahal.jpg",
+    image: "https://images.unsplash.com/photo-1585506936724-fa0c19c7b67c?w=800&auto=format&fit=crop",
     details: "Jal Mahal is an architectural beauty situated in the middle of Man Sagar Lake. While entry inside the palace isn't permitted, visitors can admire its stunning Rajput and Mughal architecture from the lake's banks.",
     bestTime: "October to March",
     hours: "Viewable anytime",
@@ -49,7 +49,7 @@ const attractions = [
   {
     title: "City Palace",
     description: "Royal residence with museums, courtyards, and galleries.",
-    image: "public/images/TopAttractions/citypalace.jpg",
+    image: "https://images.unsplash.com/photo-1574870111867-089858b7ce9d?w=800&auto=format&fit=crop",
     details: "The City Palace complex includes several palaces, courtyards, and gardens. It houses museums with royal costumes, armory, and artifacts. The palace blends Rajasthani and Mughal architectural styles.",
     bestTime: "October to March",
     hours: "9:30 AM - 5:00 PM",
@@ -60,7 +60,7 @@ const attractions = [
   {
     title: "Nahargarh Fort",
     description: "Hilltop fort offering panoramic views of Jaipur city.",
-    image: "public/images/TopAttractions/Nahargarh_Fort.jpg",
+    image: "https://images.unsplash.com/photo-1590077428593-56bca36da78b?w=800&auto=format&fit=crop",
     details: "Nahargarh Fort stands on the edge of the Aravalli Hills, overlooking Jaipur. It was built in 1734 as a retreat palace and formed a strong defense ring for the city along with Amber Fort and Jaigarh Fort.",
     bestTime: "October to March",
     hours: "10:00 AM - 5:30 PM",
@@ -71,7 +71,7 @@ const attractions = [
   {
     title: "Albert Hall Museum",
     description: "Oldest museum in Rajasthan with extensive artifact collections.",
-    image: "public/images/TopAttractions/Albert_Hall_Museum.png",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop",
     details: "The Albert Hall Museum is housed in a beautiful Indo-Saracenic style building. It displays a wide range of artifacts including paintings, carpets, ivory, stone, metal sculptures, and works in crystal.",
     bestTime: "October to March",
     hours: "9:00 AM - 5:00 PM, 7:00 PM - 10:00 PM",
@@ -82,7 +82,7 @@ const attractions = [
   {
     title: "Jaigarh Fort",
     description: "Impressive fort known for housing the world's largest cannon.",
-    image: "public/images/TopAttractions/Jaigarh_Fort.png",
+    image: "https://images.unsplash.com/photo-1591456927855-6d89ce6c9c3d?w=800&auto=format&fit=crop",
     details: "Jaigarh Fort was built to protect Amber Fort and its palace complex. It is most famous for the Jaivana cannon, the world's largest cannon on wheels. The fort offers spectacular views of the surrounding landscape.",
     bestTime: "October to March",
     hours: "9:00 AM - 4:30 PM",
